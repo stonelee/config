@@ -1,0 +1,7 @@
+/*http://www.jslint.com/lint.html*/
+
+/*jslint devel: true, white: true, sloppy: true, browser: true, node: true,
+ nomen: true, vars: true, plusplus: true */
+/*global jQuery, $, Ext, CONSTS, CIIS,LOGIN */
+
+/* vim: set ft=javascript: */
