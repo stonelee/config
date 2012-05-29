@@ -1,6 +1,6 @@
 " DesCription: 适合自己使用的vimrc文件，for Linux/Windows, GUI/Console
 " Author: Stonelee - istonelee@gmail.com
-" 参考自：http://nootn.com/blog/Tool/22/
+" Blog: stonelee.info
 
 
 " 关闭 vi 兼容模式
@@ -25,7 +25,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 
 " 多标签
-Bundle 'fholgado/minibufexpl.vim'
+Bundle 'minibufexpl.vim'
+"Bundle 'fholgado/minibufexpl.vim'
 
 " 增删改标签, 配合repeat.vim实现.重复操作。
 " ds” 删除两端的”“ 
@@ -55,7 +56,10 @@ Bundle 'scrooloose/nerdcommenter'
 
 " js格式规范化
 Bundle 'hallettj/jslint.vim'
-Bundle 'vim-jsbeautify'
+"Bundle 'jsbeautify'
+
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'einars/js-beautify'
 
 
 " Enable filetype plugin
@@ -250,8 +254,29 @@ let NERDTreeIgnore=['\~$', '.orig$','\.pyc$']
 
 " {{{ plugin - jsbeautify.vim 优化js代码，并不是简单的缩进，而是整个优化
 " 开始优化整个文件
-autocmd FileType javascript nmap <silent> <leader>js :call g:Jsbeautify()<cr>
-nmap <silent> <leader>js :call g:Jsbeautify()<cr>
+"autocmd FileType javascript nmap <silent> <leader>js :call g:Jsbeautify()<cr>
+"nmap <silent> <leader>js :call g:Jsbeautify()<cr>
+"}}}
+
+" {{{ plugin - vim-jsbeautify 美化js,html,css代码
+
+" set path to js-beautify file
+let s:rootDir = fnamemodify(expand("<sfile>"), ":h")
+let g:jsbeautify_file = fnameescape(s:rootDir."/.vim/bundle/js-beautify/beautify.js")
+let g:htmlbeautify_file = fnameescape(s:rootDir."/.vim/bundle/js-beautify/beautify-html.js")
+let g:cssbeautify_file = fnameescape(s:rootDir."/.vim/bundle/js-beautify/beautify-css.js")
+
+"Configuration
+let g:jsbeautify = {'indent_size': 1, 'indent_char': '\t'}
+let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
+let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
+
+autocmd FileType javascript noremap <buffer> <leader>f :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""" 不用的插件 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
