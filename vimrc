@@ -29,13 +29,13 @@ Bundle 'minibufexpl.vim'
 "Bundle 'fholgado/minibufexpl.vim'
 
 " 增删改标签, 配合repeat.vim实现.重复操作。
-" ds” 删除两端的”“ 
-" dst 删除两端的标签 
-" cs”{ 将两端的“”改为{  } 有空格 
-" cs”} 将两端的“”改为{} 无空格 
-" cs'<q> 将'Hello world!'改为 <q>Hello world!</q> 
-" yss) 两端加上() 
-" ysiw） 将光标所在单词两端加上（） 
+" ds” 删除两端的”“
+" dst 删除两端的标签
+" cs”{ 将两端的“”改为{  } 有空格
+" cs”} 将两端的“”改为{} 无空格
+" cs'<q> 将'Hello world!'改为 <q>Hello world!</q>
+" yss) 两端加上()
+" ysiw） 将光标所在单词两端加上（）
 " V可视化后,S然后<div>整行加div标签
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -190,10 +190,11 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-map <leader>w <C-w>v<C-w>l ",w打开新的buffer
+",w打开新的buffer
+map <leader>w <C-w>v<C-w>l
 
-" And make them fucking work, too.
-nnoremap j gj "可以在自动断行内部移动
+"可以在自动断行内部移动
+nnoremap j gj
 nnoremap k gk
 
 " Fuck you, help key.
@@ -321,7 +322,7 @@ let coffee_compile_vert = 1
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader>c :CoffeeCompile<CR>
 "两窗口预览
-map <leader>cw :CoffeeCompile watch vert<CR> 
+map <leader>cw :CoffeeCompile watch vert<CR>
 "}}}
 
 "python文件按缩进折叠
