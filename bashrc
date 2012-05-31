@@ -25,3 +25,8 @@ export PATH=/home/stonelee/bin/SenchaSDKTools-1.2.3/jsbuilder:$PATH
 export PATH=/home/stonelee/bin/SenchaSDKTools-1.2.3/appbuilder:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+alias you='cd ~/workspace/ots.you/src/main/webapp/WEB-INF/resources/scripts/kjquery/demo/'
+
+alias gvim='gvim -c "call Maximize_Window()"'
+

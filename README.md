@@ -21,6 +21,17 @@ nginx/index.html为自定义首页
 $ ln mysql/my.cnf /etc/my.cnf
 ```
 
+## vim
+
+编译vim
+
+```
+$ hg clone https://vim.googlecode.com/hg/ vim
+$ cd vim/src
+
+$ ln vim-build.sh ~/libs/vim/src/
+```
+
 配置vim
 
 ```

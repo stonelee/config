@@ -1,7 +1,6 @@
-" DesCription: 适合自己使用的vimrc文件，for Linux/Windows, GUI/Console
+" DesCription: 适合自己使用的vimrc文件
 " Author: Stonelee - istonelee@gmail.com
 " Blog: stonelee.info
-
 
 " 关闭 vi 兼容模式
 set nocompatible
@@ -25,8 +24,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 
 " 多标签
-Bundle 'minibufexpl.vim'
-"Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'minibufexpl.vim'
+Bundle 'fholgado/minibufexpl.vim'
 
 " 增删改标签, 配合repeat.vim实现.重复操作。
 " ds” 删除两端的”“
@@ -73,14 +72,12 @@ set autoread
 let mapleader = ","
 
 syntax on                   " 自动语法高亮
-"set number                  " 显示行号
 set relativenumber          " 显示相对行号
 set cc=81                   " 代码不要超过80列
 set cursorline              " 突出显示当前行
 set shiftwidth=4            " 设定 << 和 >> 命令移动时的宽度为 4
 set softtabstop=4           " 使得按退格键时可以一次删掉 4 个空格
 set tabstop=4               " 设定 tab 长度为 4
-"set autochdir               " 自动切换当前目录为当前文件所在的目录
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍大小写敏感
 set incsearch               " 输入搜索内容时就显示搜索结果
 set hlsearch                " 搜索时高亮显示被找到的文本
@@ -93,7 +90,7 @@ set magic                   " 显示括号配对情况
 set ttyfast
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set smartindent             " 开启新行时使用智能自动缩进
-set autoindent
+
 set backspace=indent,eol,start
                             " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 set cmdheight=1             " 设定命令行的行数为 1
@@ -127,24 +124,22 @@ set mouse=a
 set nobackup
 set nowb
 set noswapfile
-"set backup                        " enable backups
-"set backupcopy=yes          " 设置备份时的行为为覆盖
 
 " {{{ 编码字体设置
 set encoding=utf-8
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk,ucs-bom,cp936，OK
 set ambiwidth=double
-set guifont=YaHei\ Consolas\ Hybrid\ 10
+set guifont=YaHei\ Consolas\ Hybrid\ 11
 " }}}
 
 if has("gui_running")
-    set guioptions-=m " 隐藏菜单栏
-    set guioptions-=T " 隐藏工具栏
+	set guioptions-=m " 隐藏菜单栏
+	set guioptions-=T " 隐藏工具栏
     set guioptions-=L " 隐藏左侧滚动条
     set guioptions-=r " 隐藏右侧滚动条
     set guioptions-=b " 隐藏底部滚动条
-    "set showtabline=0 " 隐藏Tab栏
+	set showtabline=0 " 隐藏Tab栏
 endif
 
 if has("autocmd")
@@ -160,10 +155,7 @@ endif
 
 if has('unix')
     set fileformats=unix,dos,mac
-    "set backupdir=~/.vim/tmp/backup/ " backups
-    "set directory=~/.vim/tmp/swap/   " swap files
     let $VIMFILES = $HOME.'/.vim'
-    "nmap <leader>ee :tabedit ~/.vimrc<cr>        "在新tab中快速打开.vimrc
     nmap <leader>ee :edit ~/.vimrc<cr>        "快速打开.vimrc
     autocmd! bufwritepost .vimrc source ~/.vimrc "自动更新
 
@@ -211,10 +203,6 @@ vmap <C-c> "+y
 " Buffers操作快捷方式!
 nmap <S-L> :bnext<CR>
 nmap <S-H> :bprevious<CR>
-
-" Tab操作快捷方式!
-"nmap <S-J> :tabnext<CR>
-"nmap <S-K> :tabprev<CR>
 
 " 插入模式下左右移动光标
 "imap <c-l> <esc>la
