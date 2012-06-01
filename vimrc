@@ -24,8 +24,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 
 " 多标签
-"Bundle 'minibufexpl.vim'
-Bundle 'fholgado/minibufexpl.vim'
+Bundle 'minibufexpl.vim'
+"Bundle 'fholgado/minibufexpl.vim'
 
 " 增删改标签, 配合repeat.vim实现.重复操作。
 " ds” 删除两端的”“
@@ -55,10 +55,14 @@ Bundle 'scrooloose/nerdcommenter'
 
 " js格式规范化
 Bundle 'hallettj/jslint.vim'
-"Bundle 'jsbeautify'
 
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
+
+"快速移动,<leader><leader>w or <leader><leader>f{char}
+Bundle 'Lokaltog/vim-easymotion'
+
+Bundle 'vim-scripts/YankRing.vim'
 
 
 " Enable filetype plugin
@@ -260,11 +264,11 @@ let g:jsbeautify = {'indent_size': 1, 'indent_char': '\t'}
 let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
 let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
 
-autocmd FileType javascript noremap <buffer> <leader>f :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <leader>ff :call JsBeautify()<cr>
 " for html
-autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader>ff :call HtmlBeautify()<cr>
 " for css or scss
-autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
+autocmd FileType css noremap <buffer> <leader>ff :call CSSBeautify()<cr>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
