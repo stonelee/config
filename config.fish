@@ -1,5 +1,5 @@
 function gvim
-	gvim -c "call Maximize_Window()"
+	gvim -c "call Maximize_Window()" $argv
 end;
 
 set -x PATH $PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
