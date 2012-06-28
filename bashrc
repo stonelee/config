@@ -30,3 +30,8 @@ alias you='cd ~/workspace/ots.you/src/main/webapp/WEB-INF/resources/scripts/kjqu
 
 alias gvim='gvim -c "call Maximize_Window()"'
 
+export PATH=/home/stonelee/.npm/docco/0.3.0/package/bin:$PATH
+export PATH=/home/stonelee/.npm/coffee-script/1.3.3/package/bin:$PATH
+
+alias proxy='python ~/bin/goagent/local/proxy.py >& /dev/null &'
+

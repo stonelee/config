@@ -64,6 +64,14 @@ Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'vim-scripts/YankRing.vim'
 
+Bundle 'kchmck/vim-coffee-script'
+
+Bundle 'skammer/vim-css-color'
+
+"语法高亮
+Bundle 'jelera/vim-javascript-syntax'
+
+Bundle 'groenewege/vim-less'
 
 " Enable filetype plugin
 filetype plugin on
@@ -242,7 +250,9 @@ au BufRead,BufNewFile *.json set filetype=javascript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ plugin - NERD_tree.vim 树形菜单
 map <leader>e :NERDTreeToggle<cr>
-let NERDTreeIgnore=['\~$', '.orig$','\.pyc$']
+"let NERDTreeIgnore=['\~$', '.orig$','\.pyc$']
+let NERDTreeIgnore=['\~$', '.orig$','\.pyc$','\.js$']
+let NERDTreeShowLineNumbers=1
 "}}}
 
 " {{{ plugin - jsbeautify.vim 优化js代码，并不是简单的缩进，而是整个优化
@@ -271,6 +281,26 @@ autocmd FileType html noremap <buffer> <leader>ff :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>ff :call CSSBeautify()<cr>
 
 " }}}
+
+" {{{ plugin - vim-coffee-script CoffeeScript插件,更好的js
+
+"自动编译为相应的js文件,有错误的话会报告
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow
+"按缩进折叠
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent  nofoldenable
+"纵向分栏
+let coffee_compile_vert = 1
+
+vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
+map <leader>c :CoffeeCompile<CR>
+"两窗口预览
+map <leader>cw :CoffeeCompile watch vert<CR>
+"}}}
+
+" {{{ plugin - vim-javascript-syntax js高亮,折叠
+"au FileType javascript call JavaScriptFold()
+"}}}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""" 不用的插件 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -301,21 +331,13 @@ map <leader>g :TlistToggle<CR>
 autocmd FileType html,xhtml nmap <F9> :make<cr><cr>:copen<cr>
 "}}}
 
-" {{{ plugin - vim-coffee-script CoffeeScript插件,更好的js
-" https://github.com/kchmck/vim-coffee-script
-
-"自动编译为相应的js文件,有错误的话会报告
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow
-"按缩进折叠
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent  nofoldenable
-"纵向分栏
-let coffee_compile_vert = 1
-
-vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
-map <leader>c :CoffeeCompile<CR>
-"两窗口预览
-map <leader>cw :CoffeeCompile watch vert<CR>
-"}}}
 
 "python文件按缩进折叠
 au BufNewFile,BufReadPost *.py setl foldmethod=indent  nofoldenable
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""" 常用设置 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"取消jslint高亮
+"let g:JSLintHighlightErrorLine = 0
+au BufNewFile,BufReadPost *.js setl foldmethod=indent  nofoldenable
